@@ -16,6 +16,7 @@ export default async function mediaInfo(req: Request, res: Response) {
       data: info,
     });
   } catch (err) {
+    console.log("error: ", err);
     res.json({
       success: false,
       message: "Something went wrong",
