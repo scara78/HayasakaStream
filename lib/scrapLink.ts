@@ -17,7 +17,7 @@ export const scrapLink = async (opt: opt) => {
 
   await page.setExtraHTTPHeaders({ Referer: "https://google.com" });
 
-  await page.goto(`https://esh-bostewsom-i-273.site/play/${opt.id}`);
+  await page.goto(`${process.env.BASE_URL}/play/${opt.id}`);
   // Enable the request interception
   await page.setRequestInterception(true);
 

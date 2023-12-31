@@ -10,7 +10,7 @@ export const getInfo = async (id: string) => {
 
   await page.setExtraHTTPHeaders({ Referer: "https://google.com" });
 
-  await page.goto(`https://esh-bostewsom-i-273.site/play/${id}`);
+  await page.goto(`${process.env.BASE_URL}/play/${id}`);
   await page.waitForSelector(`[class^="pjsplplayer"][class$="scroll"]`);
   const html = await page.content();
   const $ = cheerio.load(html);

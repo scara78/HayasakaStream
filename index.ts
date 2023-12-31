@@ -16,7 +16,11 @@ dotenv.config();
 app.use(express.json());
 
 app.use("/api/v1", router);
+app.get("/", (req, res) => {
+  res.send("its ok");
+});
 
-app.listen(4000, () => {
-  console.log("Server listening on port 4000");
+const Port = process.env.PORT || 5000;
+app.listen(Port, () => {
+  console.log(`Server running on port ${Port}`);
 });
