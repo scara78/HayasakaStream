@@ -10,7 +10,10 @@ export const scrapLink = async (opt: opt) => {
   let streamhls = "";
   let abort = true;
   const browser = await puppeteer.launch({
-    headless: true, // Set this to false to run in non-headless mode
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
   });
 
   const page = await browser.newPage();
