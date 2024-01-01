@@ -24,8 +24,14 @@ Provides information about movie/series which includes
         "totalSeasons": 3,
         "totalEpisodesS1": 8,
         "languages": [
-            "Hindi",
-            "English"
+            {
+                "id": 1,
+                "name": "Hindi"
+            },
+            {
+                "id": 2,
+                "name": "English"
+            }
         ]
     }
 }
