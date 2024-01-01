@@ -29,7 +29,7 @@ export default async function getEpisodes(req: Request, res: Response) {
     console.log("error: ", err);
     res.json({
       success: false,
-      message: "Something went wrong",
+      message: "No media found",
     });
   }
 }
