@@ -4,15 +4,15 @@
  - Most commonly provided languages - Hindi, English, Tamil, Telugu, Bengali.
  
 ## Note 
-Don't use Api provided for trying as its is rate limited and hosted very low powered machine(on render) so have bad response time. But, you can Deploy your own instance(I got 2.5s res time on amazon free tire ec2).
+Don't use the API provided for trying as it is rate-limited and hosted on a very low-powered machine(on render) so have a bad response time. But, you can Deploy your instance.
 
 #  Documentation
 ## Get media Info
 Provides information about movie/series which includes
 
- - totalSeasons -  total avaiable seasons (0 for movies).
- - totalEpisodesS1 - total avaiable Episodes in Season 1 (0 for movies).
- - languages - avaiable languages array.
+ - totalSeasons -  total available seasons (0 for movies).
+ - totalEpisodesS1 - total available Episodes in Season 1 (0 for movies).
+ - languages - available languages array.
  
 **Endpoint** - `/api/v1/mediaInfo?id=tt1190634`
 
@@ -24,8 +24,14 @@ Provides information about movie/series which includes
         "totalSeasons": 3,
         "totalEpisodesS1": 8,
         "languages": [
-            "Hindi",
-            "English"
+            {
+                "id": 1,
+                "name": "Hindi"
+            },
+            {
+                "id": 2,
+                "name": "English"
+            }
         ]
     }
 }
@@ -38,7 +44,7 @@ Provides information about movie/series which includes
 |id|IMDB ID of movie/series
 
 ## Get total episodes
-Provides total avaiable episodes in season.
+Provides total available episodes in season.
 
 **Endpoint** - `/api/v1/getEpisodes?id=tt1190634&season=2&lang=1`
 
@@ -62,7 +68,7 @@ Provides total avaiable episodes in season.
 
 ## Get Stream
 Provides stream link.
-**Endpint** - `/api/v1/getStream?id=tt1190634&season=1&episode=4&lang=1`
+**Endpoint** - `/api/v1/getStream?id=tt1190634&season=1&episode=4&lang=1`
 
 **Response** - 
 ```bash
