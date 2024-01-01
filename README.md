@@ -4,7 +4,7 @@
  - Most commonly provided languages - Hindi, English, Tamil, Telugu, Bengali.
  
 ## Note 
-Don't use Api provided for trying as its is rate limited and hosted very low powered machine(on render) so have bad response time. But, you can Deploy your own instance(I got 2.5s res time on amazon free tire ec2).
+Don't use Api provided for trying as its is rate limited and hosted very low powered machine(on render) so have bad response time. But, you can Deploy your instance.
 
 #  Documentation
 ## Get media Info
