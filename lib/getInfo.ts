@@ -3,12 +3,15 @@ import cheerio from "cheerio";
 
 export const getInfo = async (id: string) => {
   const browser = await puppeteer.launch({
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--single-process",
-      "--no-zygote",
-    ],
+    args:
+      process.env.NODE_ENV === "production"
+        ? [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--single-process",
+            "--no-zygote",
+          ]
+        : [],
     executablePath:
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
@@ -23,14 +26,17 @@ export const getInfo = async (id: string) => {
   await page.waitForSelector(`[class^="pjsplplayer"][class$="scroll"]`);
   const html = await page.content();
   const $ = cheerio.load(html);
-  const languages: string[] = [];
+  const languages: { id: number; name: string }[] = [];
   const totalSeasons = $(`[class^="pjsplplayer"][class$="scroll"]`)[2]?.children
     ?.length;
   const totalEpisodes = $(`[class^="pjsplplayer"][class$="scroll"]`)[1]
     ?.children?.length;
   const lang = $(`[class^="pjsplplayer"][class$="scroll"]`)[0]?.children as any;
   for (let i = 0; i < lang.length; i++) {
-    languages.push(lang?.[i]?.children?.[0]?.data);
+    languages.push({
+      id: i + 1,
+      name: lang?.[i]?.children?.[0]?.data,
+    });
   }
   await browser.close();
   return {

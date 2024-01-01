@@ -10,12 +10,15 @@ export const scrapLink = async (opt: opt) => {
   let streamhls = "";
   let abort = true;
   const browser = await puppeteer.launch({
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--single-process",
-      "--no-zygote",
-    ],
+    args:
+      process.env.NODE_ENV === "production"
+        ? [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--single-process",
+            "--no-zygote",
+          ]
+        : [],
     executablePath:
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
@@ -52,21 +55,21 @@ export const scrapLink = async (opt: opt) => {
       const lang = document.querySelectorAll(
         `[class^="pjsplplayer"][class$="scroll"]`
       )[0].children[opt.language - 1] as HTMLElement;
-      lang.click();
+      lang?.click();
     }
     // select season
     if (opt.season) {
       const season = document.querySelectorAll(
         `[class^="pjsplplayer"][class$="scroll"]`
       )[2].children[opt.season - 1] as HTMLElement;
-      season.click();
+      season?.click();
     }
     // select episode
     if (opt.episode) {
       const episode = document.querySelectorAll(
         `[class^="pjsplplayer"][class$="scroll"]`
       )[1].children[opt.episode - 1] as HTMLElement;
-      episode.click();
+      episode?.click();
     }
   }, opt);
 
