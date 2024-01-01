@@ -11,6 +11,6 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-EXPOSE 5001
+EXPOSE 3000
 USER pptruser
 CMD ["npm", "start"]
