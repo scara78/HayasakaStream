@@ -86,7 +86,7 @@ Provides stream link.
 |--|--| --|
 |id|IMDB ID of movie/series  |true
 |season|Season number|optional, default=1
-|lang|Language ID (get from media info)|optional, default=Ist lang
+|lang|Language ID (get from media info)|true
 |episode|Episode number|optional, default=1
 
 # Installation
