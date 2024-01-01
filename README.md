@@ -114,7 +114,7 @@ docker run -p 3000:3000 -it -d HayasakaStream
 
 ## To-Do List
 
-- [x] Better error handeling.
-- [x] Also provide movies/series catalogue.
-- [x] Create a web app.
+- [ ] Better error handeling.
+- [ ] Also provide movies/series catalogue.
+- [ ] Create a web app.
 
