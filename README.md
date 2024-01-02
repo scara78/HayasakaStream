@@ -112,9 +112,3 @@ docker build -t HayasakaStream .
 docker run -p 3000:3000 -it -d HayasakaStream
 ```
 
-## To-Do List
-
-- [ ] Better error handeling.
-- [ ] Also provide movies/series catalogue.
-- [ ] Create a web app.
-
